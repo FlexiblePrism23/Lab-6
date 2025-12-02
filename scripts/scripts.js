@@ -30,9 +30,12 @@ let duration = 0;
 
 
 function recalculate() {
-    let costLabel = document.getElementById("calculated-cost");
-    if (modelName === "XYZ") {costLabel.innerHTML = (duration * 100)}
-    else if (modelName === "CPRG") { costLabel.innerHTML = (duration * 213)} 
+	let costLabel = document.getElementById("calculated-cost");
+	if (modelName === "XYZ") {
+		costLabel.innerHTML = (duration * 100);
+	} else if (modelName === "CPRG") {
+		costLabel.innerHTML = (duration * 213);
+	}
 }
 
 
@@ -48,15 +51,23 @@ function recalculate() {
     - if modelName is currently "CPRG", change the value of modelName to "XYZ", and change the innerHTML of the model-text span element to "Model XYZ"
     - then, recalculate() the total cost.
 - finally, uncomment the following line of JavaScript to have this function run automatically whenever the pseudo-button is clicked: */
-    // modelButton.addEventListener("click", changeModel);
+// modelButton.addEventListener("click", changeModel);
 
 // INSERT YOUR CODE HERE
 
-let modelButton = document.getElementById("model-button")
+let modelButton = document.getElementById("model-button");
+
 function changeModel() {
     let modelText = document.getElementById("model-text");
-    if (modelName === "XYZ") {modelName = "CPRG", modelText.innerHTML = "Model CPRG"}
-    else if (modelName === "CPRG") {modelName = "XYZ", modelText.innerHTML = "Model XYZ"}
+
+    if (modelName === "XYZ") {
+        modelName = "CPRG";
+        modelText.innerHTML = "Model CPRG";
+    } else if (modelName === "CPRG") {
+        modelName = "XYZ";
+        modelText.innerHTML = "Model XYZ";
+    }
+
     recalculate();
 }
 modelButton.addEventListener("click", changeModel);
@@ -76,13 +87,13 @@ modelButton.addEventListener("click", changeModel);
 */
 
 // INSERT YOUR CODE HERE    
-let durationButton = document.getElementById("duration-button")
-function changeDuration(){
-    let durationText = document.getElementById("duration-text");
-    let newDuration = prompt("Enter number of days to rent the robot:")
-    duration = newDuration
-    durationText.innerHTML = duration
-    recalculate();
+let durationButton = document.getElementById("duration-button");
+
+function changeDuration() {
+	let durationText = document.getElementById("duration-text");
+	let newDuration = prompt("Enter number of days to rent the robot:");
+	duration = newDuration;
+	durationText.innerHTML = duration;
+	recalculate();
 }
 durationButton.addEventListener("click", changeDuration);
-
